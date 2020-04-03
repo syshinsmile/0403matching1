@@ -28,7 +28,7 @@ List<BoardDto> list = (List<BoardDto>)request.getAttribute("list");
 
 
 <!-- javascript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("#btnWrite").click(function(){
@@ -36,6 +36,7 @@ $(document).ready(function(){
 		//페이지 주소변경 이동하기
 	});
 });
+
 </script>
 
 </head>
@@ -62,15 +63,16 @@ $(document).ready(function(){
 
 
 
-
+<!-- 내용 -->
 <h1>QnA</h1>
 
 <!-- Masthead-->
-<!-- <header class="masthead"> -->
+<header class="masthead">
 <div class="container h-100">
 <div class="row h-100 align-items-center justify-content-center text-center">
 <div class="col-lg-10 align-self-end">
 
+<!-- <button type="submit" id="btnWrite" class="btn btn-outline-danger btn-lg">글쓰기</button> -->
 <button type="submit" id="btnWrite" class="btn btn-outline-danger btn-lg">글쓰기</button>
 
 <!-- 검색 -->
@@ -107,7 +109,7 @@ $(document).ready(function(){
 </div>
 </div>
 </div>
-<!-- </header> -->
+</header>
 
     
     

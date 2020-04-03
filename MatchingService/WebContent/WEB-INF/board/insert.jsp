@@ -11,12 +11,6 @@
 내용 : ${BoardDto.content} <br>
 
 
-
-<button onclick="location.href='list.do'">리스트가기</button>
-
-작성일자 : ${BoardDto.reg_datetime} <br>
-
-
 <button onclick="location.href='list.do'">리스트가기</button>
 <button onclick="loction.href='update.do'">수정하기</button>
 <button onclick="location.href='delete.do'">삭제하기</button>

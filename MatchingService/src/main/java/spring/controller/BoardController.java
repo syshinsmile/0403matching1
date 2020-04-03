@@ -19,31 +19,19 @@ import spring.model.BoardDto;
 import spring.service.BoardService;
 
 @Controller
-@RequestMapping("/board/*")
+@RequestMapping("BoardList.do")
 public class BoardController{
 	
 	@Autowired
 	BoardService boardService;
 	
 	//리스트 전부 보여주기!!!!!!!!!!!!
-	@RequestMapping("list.do")
+	@RequestMapping
 	public String showList(Model aModel) {
 		List<BoardDto> list = boardService.listAll();
 		aModel.addAttribute("list",list);
 		//request.setAttribute와 똑같은 표현
 		return "board/list";
-	}
-	
-	//게시글을 작성 화면
-	@GetMapping("write.do")
-	public String write() {
-		return "board/write";
-	}
-	//게시글을 작성 넘어가는 화면
-	@PostMapping("insert.do")
-	public String insert(@ModelAttribute("BoardDto")BoardDto bdto) {
-		boardService.insert(bdto);
-		return "board/insert";
 	}
 	
 	//게시글 상세내용 조회
@@ -64,7 +52,6 @@ public class BoardController{
 	@PostMapping("update.do")
 	public String update(@ModelAttribute("BoardDto")BoardDto bdto) {
 		boardService.update(bdto);
-
 		return "redirect:list.do";
 	}
 	

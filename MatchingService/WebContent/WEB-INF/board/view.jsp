@@ -12,61 +12,15 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-$(function(){
-$("#btnUpdate").click(funtion(){
-	/* var title = $("#title").val();
-	var content = $("#content").val();
-	var writer = $("#writer").val(); 
-	
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-
-$("#btnUpdate").click(funtion(){
-	/* var title = $("#title").val();
-	var content = $("#content").val();
-	var writer = $("#writer").val(); */
-
-	var title=document.form1.title.value;
-	var content=document.form1.content.value;
-	var writer=document.form1.writer.value;
-	var code=document.form1.code.value;
-	
-	if(title==""){
-		alert("제목을 입력하세요");
-		document.form1.title.focus();
-		return;
-	}if(content==""){
-		alert("내용을 입력하세요");
-		document.form1.content.focus();
-		return;
-	}if(writer==""){
-		alert("이름을 입력하세요");
-		document.form1.writer.focus();
-		return;
-	}
- 	document.form1.action="update.do";
-
-	location.href="write.do"
-	//페이지 주소변경 이동하기
-});
-});
-})
-
-*/
-
-$(document).ready(function(){
-	//delete함수 시작
- $("#btnDelete").click(function(){
-	if(confirm("삭제하시겠습니까?")){
-		document.form1.action="delete.do";
-		document.form1.submit();
-	}
- });
-
-
 //update함수 시작
+$(document).ready(function(){
 $("#btnUpdate").click(function(){
+	//버튼 형식을 id로 지정할 경우에는 값이 넘어가지 않는다. 밑에 변수 지정하는 것은 id로 지정했을때
+	//id는 jsp페이지 안에서 쓸 경우에만 붙이고 name은 값을 넘길때 사용하는 형식이다.
+	/* 	var title = $("#title").val();
+		var content = $("#content").val();
+		var writer = $("#writer").val(); */
+		
 	var title=document.form1.title.value;
 	var content=document.form1.content.value;
 	var writer=document.form1.writer.value;
@@ -86,25 +40,20 @@ $("#btnUpdate").click(function(){
 	}
 	 	document.form1.action="update.do";
 	 	document.form1.submit();
-	/* 	location.href="write.do"
-		//페이지 주소변경 이동하기 */
 });
-
 }); 
-=======
-/* 	location.href="write.do"
-	//페이지 주소변경 이동하기 */ */
-});
-});
 
+
+//delete.do 실행
 $(document).ready(function(){
 $("#btnDelete").click(function(){
 if(confirm("삭제하시겠습니까?")){
 document.form1.action="delete.do";
+document.form1.submit();
 }
 });
 });
->>>>>>> 3f97dbc65276a1adff672b32caca45242bc8e5bc
+
 
 </script>
 </head>
@@ -122,13 +71,13 @@ document.form1.action="delete.do";
 <div style="width:650px; text-align:center;">
 <input type="hidden" name="code" value="${BoardDto.code}">
 
-<<<<<<< HEAD
+
 <input type="button" id="btnUpdate" value="수정완료"/>
 <input type="button" id="btnDelete" value="삭제"/>
-=======
-<button type="submit" id="btnUpdate">수정완료</button>
+
+<!-- <button type="submit" id="btnUpdate">수정완료</button>
 <button type="submit" id="btnDelete">삭제</button>
->>>>>>> 3f97dbc65276a1adff672b32caca45242bc8e5bc
+ -->
 
 </div>
 
