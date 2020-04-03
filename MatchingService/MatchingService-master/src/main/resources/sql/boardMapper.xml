@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="board">
+<!-- 게시글 전체보기 -->
+ <select id="listAll" resultType="spring.model.BoardDto">
+        select * from board
+ </select>
+ 
+<!-- 게시글 작성 -->    
+ <insert id="insert" parameterType="spring.model.BoardDto"> <!--  useGeneratedKeys="true" keyProperty="code" -->
+insert into board (
+code,title,content,writer,reg_datetime
+)
+values(
+#{code},#{title}, #{content}, #{writer}, now()
+)
+    </insert>
+
+<!-- 게시글 상세보기 조회 -->
+<select id="view" resultType="spring.model.BoardDto">
+SELECT * FROM board
+WHERE code = #{code}
+</select>    
+
+
+<!--게시글 수정처리-->
+    <update id="updateBoard">
+        update board set
+            title = #{title}
+            , content = #{content}
+            , writer = #{writer}
+            , reg_datetime = now()
+        where
+            code = #{code}
+    </update>
+    
+<!-- 게시글 삭제처리 -->
+  <delete id="deleteBoard">
+        delete from board
+        where
+            code = #{code}
+    </delete>
+    
+
+ 
+ <!-- 게시글 조회수 증가 처리 -->
+ <update id="increaseViewcnt">
+ UPDATE board SET viewcnt = viewcnt+1
+ WHERE code=#{code}
+ </update>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="regist">
+
+	<select resultType="string" id="s_email">select s_email from student </select>
+
+	<insert id="s_insert" parameterType="regist.MemberInfo">
+		insert into student(name,password,s_email,s_phone,s_tag) values(#{name},#{password},#{s_email},#{s_phone},#{s_tag})
+	</insert>
+
+	<select resultType="string" id="t_email">select t_email from teacher </select>
+
+	<insert id="t_insert" parameterType="regist_t.MemberInfo_t">
+		insert into teacher(name,password,t_email,t_phone) values(#{name},#{password},#{t_email},#{t_phone})
+	</insert>
+
+	<select resultType="string" id="s_login" parameterType="string">
+		select password from student where s_email=#{s_email}
+	</select>
+	<select resultType="string" id="t_login" parameterType="string">
+		select password from teacher where t_email=#{t_email}
+	</select>
+
+</mapper>

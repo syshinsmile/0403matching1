@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<insert id="addMember" parameterType="spring.model.MemDto">
+		insert into mem values(#{memberid},#{password},#{name},#{email})
+	</insert>
+	
+	<!-- mem테이블에 있는 모든 레코드 select해서 dto객체에 저장 -->
+	<select id="allMember" resultType="spring.model.MemDto">
+		select * from mem
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
