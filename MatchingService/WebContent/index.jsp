@@ -8,8 +8,6 @@
         <meta name="author" content="" />
         <title>MatchingService</title>
 
-        
-
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -207,16 +205,6 @@
             </div>
         </section>
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
         <!-- Footer-->
         <footer class="bg-light py-5">
