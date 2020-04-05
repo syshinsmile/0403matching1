@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
 @Controller
-@RequestMapping("/t_regist/controll")
+@RequestMapping("/RegistTeacher.do")
 public class RegistMemberController_t
 {
     @Autowired

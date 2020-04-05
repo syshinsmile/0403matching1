@@ -33,34 +33,5 @@ public class BoardController{
 		//request.setAttribute와 똑같은 표현
 		return "board/list";
 	}
-	
-	//게시글 상세내용 조회
-	@RequestMapping(value = "view.do", method = RequestMethod.GET)
-	public ModelAndView view(@RequestParam int code, HttpSession session) {
-	
-	//조회수 증가
-	boardService.increaseViewcnt(code,session);
-	
-	//view 상세내역 조회
-	ModelAndView mav = new ModelAndView();
-	mav.setViewName("board/view");
-	mav.addObject("BoardDto"/*여기는 뷰에서 보일 이름을 설정하는 곳*/,boardService.read(code));
-	return mav;
-	}
-	
-	//게시글 수정하기
-	@PostMapping("update.do")
-	public String update(@ModelAttribute("BoardDto")BoardDto bdto) {
-		boardService.update(bdto);
-		return "redirect:list.do";
-	}
-	
-	//게시글 삭제하기
-	@PostMapping("delete.do")
-	public String delete(@RequestParam int code) {
-		boardService.delete(code);
-		return "redirect:list.do";
-	}
-
 
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/login_t/login")
+@RequestMapping("LoginTeacher.do")
 public class LoginController_t {
 	
 	@Autowired
