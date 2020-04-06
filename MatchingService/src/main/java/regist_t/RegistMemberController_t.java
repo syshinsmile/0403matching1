@@ -18,7 +18,7 @@ public class RegistMemberController_t
     private RegistService_t serv;
     @Autowired
     private MemberInfoValidator_t vali;
-    private String formViewName = "teacher/t_regist/memberForm";;
+    private String formViewName = "teacher/t_regist/memberForm_t";;
     
     public void setServ(final RegistService_t serv) {
         this.serv = serv;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("LoginInsert.do")
+@RequestMapping("LoginStudent.do")
 public class LoginController {
 	
 	@Autowired

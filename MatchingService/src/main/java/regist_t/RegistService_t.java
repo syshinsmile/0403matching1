@@ -1,6 +1,9 @@
 package regist_t;
 
 import org.springframework.validation.Errors;
+
+import regist.MemberInfo;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +28,7 @@ public class RegistService_t
     }
     
     public Errors checkEmail(final Object target, final Errors errors) {
-        final MemberInfo_t memberInfo = (MemberInfo_t)target;
+    	MemberInfo_t memberInfo = (MemberInfo_t)target;
         this.e = this.getEmail();
         final String t_email = memberInfo.getT_email();
         if (t_email.equals("")) {
@@ -42,8 +45,14 @@ public class RegistService_t
                 errors.rejectValue("t_email", "notUnique");
             }
         }
-        String password=memberInfo.getPassword();
+        checkPasswd(target, errors);
+        return errors;
+    }
+    private void checkPasswd (Object target, Errors errors) {
+    	MemberInfo_t memberInfo = (MemberInfo_t)target;
+    	String password=memberInfo.getPassword();
         String reCheck=memberInfo.getReCheck();
+        
         if(password.equals("")) {errors.rejectValue("password", "required"); }
         else if(reCheck.equals("")) { 
         	errors.rejectValue("password", "required"); 
@@ -52,10 +61,11 @@ public class RegistService_t
         else if(!reCheck.equals(password)) { 
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "reCheckErr"); 
+        }else if(errors.getErrorCount()>-1) {
+        	errors.rejectValue("password", "required"); 
+        	errors.rejectValue("reCheck", "required"); 
         }
-      
-        
-        
-        return errors;
     }
+    
+    
 }

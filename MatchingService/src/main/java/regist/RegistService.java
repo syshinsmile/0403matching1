@@ -43,8 +43,15 @@ public class RegistService
                 errors.rejectValue("s_email", "notUnique");
             }
         }
-        String password=memberInfo.getPassword();
+        checkPasswd(target, errors);
+      
+        return errors;
+    }
+    private void checkPasswd (Object target, Errors errors) {
+    	MemberInfo memberInfo = (MemberInfo)target;
+    	String password=memberInfo.getPassword();
         String reCheck=memberInfo.getReCheck();
+        
         if(password.equals("")) {errors.rejectValue("password", "required"); }
         else if(reCheck.equals("")) { 
         	errors.rejectValue("password", "required"); 
@@ -53,8 +60,10 @@ public class RegistService
         else if(!reCheck.equals(password)) { 
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "reCheckErr"); 
+        }else if(errors.getErrorCount()>-1) {
+        	errors.rejectValue("password", "required"); 
+        	errors.rejectValue("reCheck", "required"); 
         }
-      
-        return errors;
     }
+    
 }

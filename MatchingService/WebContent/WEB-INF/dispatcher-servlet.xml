@@ -8,7 +8,19 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-		
+	<bean id="menuPreparer" class="spring.tiles.MenuPreparer" />
+
+	<!-- <bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles_def/tilesdef.xml</value>
+			</list>
+		</property>
+		<property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory" />
+	</bean> -->
+	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
@@ -29,7 +41,8 @@
 	<bean
 		class="org.springframework.web.servlet.view.BeanNameViewResolver"
 		id="viewResolver1" />
-
+	<!-- <bean id="tilesviewResolver"
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" /> -->
 	<!-- -->
 	<bean id="viewResolver2"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

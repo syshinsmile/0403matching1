@@ -18,6 +18,9 @@ repositories {
 }
 
 dependencies {
+// https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp
+compile group: 'org.apache.tiles', name: 'tiles-jsp', version: '3.0.8'
+
     // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
 compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
 
