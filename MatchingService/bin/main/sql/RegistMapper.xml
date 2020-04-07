@@ -23,5 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select resultType="string" id="t_login" parameterType="string">
 		select password from teacher where t_email=#{t_email}
 	</select>
+	<select resultType="regist.MemberInfo" id="loginData" parameterType="string">
+		select * from student where s_email=#{s_email}
+	</select>
+	<select resultType="regist_t.MemberInfo_t" id="t_loginData" parameterType="string">
+		select * from teacher where t_email=#{t_email}
+	</select>
 
 </mapper>

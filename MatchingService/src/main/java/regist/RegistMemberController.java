@@ -44,7 +44,7 @@ public class RegistMemberController
     }
     
     @RequestMapping(method = { RequestMethod.POST })
-    public String submit(@ModelAttribute MemberInfo memberInfo, BindingResult result, Model model,HttpServletRequest req) {
+    public String submit(@ModelAttribute MemberInfo memberInfo, BindingResult result, Model model) {
         vali.validate(memberInfo, (Errors)result);
         if (result.hasErrors()) {
             return formViewName;

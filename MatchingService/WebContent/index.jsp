@@ -32,7 +32,7 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="LoginInsert.do">로그인하기</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="LoginInsert.do"><span class="gugi">로그인하기</span></a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="BoardList.do">게시판</a></li>
                     </ul>
                 </div>

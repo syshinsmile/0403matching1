@@ -2,10 +2,11 @@ package login_t;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
+
+import regist_t.MemberInfo_t;
 
 @Service
 public class LoginService_t {
@@ -18,6 +19,7 @@ public class LoginService_t {
 	    
 	    public List<String> getEmail() { return lDao.getEmail(); }
 	    public String getPassword(String t_email) { return lDao.getPassword(t_email);}
+	    public MemberInfo_t getMemberInfo(String t_email) { return lDao.getMemberInfo(t_email); }
 	    
 	    public Errors checkEmail(Object target, Errors errors) {
 	    	

@@ -2,12 +2,11 @@ package login;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 
-import login.LoginCommand;
+import regist.MemberInfo;
 
 @Service
 public class LoginService {
@@ -20,6 +19,7 @@ public class LoginService {
 	    
 	    public List<String> getEmail() { return lDao.getEmail(); }
 	    public String getPassword(String s_email) { return lDao.getPassword(s_email);}
+	    public MemberInfo getMemberInfo(String s_email) { return lDao.getMemberInfo(s_email); }
 	    
 	    public Errors checkEmail(Object target, Errors errors) {
 	    	LoginCommand memberInfo= (LoginCommand)target;

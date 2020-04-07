@@ -78,8 +78,8 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void increaseViewcnt(int code, HttpSession session) {
 		long update_time=0;
-		if(session.getAttribute("update_time_"+code)!=null) {
-			update_time=(long)session.getAttribute("update_time_"+code);
+		if(session.getAttribute("update_time"+code)!=null) {
+			update_time=(long)session.getAttribute("update_time"+code);
 		}
 		long current_time = System.currentTimeMillis();
 		
@@ -88,6 +88,4 @@ public class BoardServiceImpl implements BoardService{
 			session.setAttribute("update_time"+code, current_time);
 		}
 	}
-	
-
 }
