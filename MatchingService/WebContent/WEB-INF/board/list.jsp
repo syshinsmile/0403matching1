@@ -54,7 +54,7 @@ $(document).ready(function(){
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="insert.do">로그인하기</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="list.do">문의하기</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="BoardList.do">문의하기</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,14 +64,13 @@ $(document).ready(function(){
 
 
 <!-- 내용 -->
-<h1>QnA</h1>
 
 <!-- Masthead-->
 <header class="masthead">
-<div class="container h-100">
-<div class="row h-100 align-items-center justify-content-center text-center">
+<div class="container">
+<!-- <div class="row h-100 align-items-center justify-content-center text-center">
 <div class="col-lg-10 align-self-end">
-
+ -->
 <!-- <button type="submit" id="btnWrite" class="btn btn-outline-danger btn-lg">글쓰기</button> -->
 <button type="submit" id="btnWrite" class="btn btn-outline-danger btn-lg">글쓰기</button>
 
@@ -81,7 +80,7 @@ $(document).ready(function(){
 </form>
 
 <table class="table">
-  <thead class="thead-dark">
+  <thead  class="table table-dark">
     <tr>
       <th scope="col">번호</th>
       <th scope="col">작성자</th>
@@ -94,7 +93,7 @@ $(document).ready(function(){
 
 <c:forEach var="BoardDto" items="${list}">
  <tbody>
-    <tr>
+    <tr class="table-secondary">
       <td>${BoardDto.code}</td>
       <td>${BoardDto.writer}</td>
       <td><a href="view.do?code=${BoardDto.code}">${BoardDto.title}</a></td>
@@ -107,8 +106,8 @@ $(document).ready(function(){
 </table>  
  
 </div>
-</div>
-</div>
+<!-- </div>
+</div> -->
 </header>
 
     

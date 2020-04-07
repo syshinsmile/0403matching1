@@ -13,17 +13,17 @@ public class MemberInfoValidator_t implements Validator
     @Autowired
     private RegistService_t serv;
     
-    public void setServ(final RegistService_t serv) {
+    public void setServ(RegistService_t serv) {
         this.serv = serv;
     }
     
-    public void validate(final Object target, Errors errors) {
+    public void validate(Object target, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "t_phone", "required");
-        errors = this.serv.checkEmail(target, errors);
+        errors = serv.checkEmail(target, errors);
     }
     
-    public boolean supports(final Class<?> clazz) {
+    public boolean supports(Class<?> clazz) {
         return MemberInfo.class.isAssignableFrom(clazz);
     }
 }

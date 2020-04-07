@@ -42,20 +42,20 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">Matching Teacher Student</h1>
+                        <h1 class="text-uppercase text-white font-weight-bold"></h1>
         
         
 	<form:form commandName="login">
 	<form:errors />
 	
-	<p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 선생님 로그인  </p>
+	<p class="text-white-75 font-weight-light mb-5"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 선생님 로그인  </p>
 	<p>
-		<label for="t_email">&nbsp&nbsp 이메일 &nbsp&nbsp&nbsp</label>
+		<label class="text-white-75 font-weight-light mb-5" for="t_email">&nbsp&nbsp 이메일 &nbsp&nbsp&nbsp</label>
 		<form:input path="t_email" />
 		<form:errors path="t_email" />
 	</p>
 	<p>
-		<label for="password">&nbsp 비밀번호 &nbsp</label>
+		<label class="text-white-75 font-weight-light mb-5" for="password">&nbsp 비밀번호 &nbsp</label>
 		<form:password id="password" path="password" />
 		<form:errors path="password" />
 	</p>

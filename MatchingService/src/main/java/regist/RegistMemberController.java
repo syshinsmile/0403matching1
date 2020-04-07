@@ -30,7 +30,7 @@ public class RegistMemberController
     private String formViewName;
     
     public RegistMemberController() {
-        this.formViewName = "student/s_regist/memberForm";
+        formViewName = "student/s_regist/memberForm";
     }
     
     @ModelAttribute
@@ -39,17 +39,17 @@ public class RegistMemberController
     }
     
     @RequestMapping(method = { RequestMethod.GET })
-    public String form(final Model model) {
-        return this.formViewName;
+    public String form(Model model) {
+        return formViewName;
     }
     
     @RequestMapping(method = { RequestMethod.POST })
-    public String submit(@ModelAttribute final MemberInfo memberInfo, final BindingResult result, final Model model,HttpServletRequest req) {
-        this.vali.validate(memberInfo, (Errors)result);
+    public String submit(@ModelAttribute MemberInfo memberInfo, BindingResult result, Model model,HttpServletRequest req) {
+        vali.validate(memberInfo, (Errors)result);
         if (result.hasErrors()) {
-            return this.formViewName;
+            return formViewName;
         }
-        this.serv.insert(memberInfo);
+        serv.insert(memberInfo);
         
         return "student/s_regist/success";
     }

@@ -9,13 +9,14 @@ import spring.model.BoardDto;
 import spring.service.BoardService;
 
 @Controller
+@RequestMapping("insert.do")
 public class InsertCont {
 	
 	@Autowired
 	BoardService boardService;
 	
 	//게시글을 작성 넘어가는 화면
-	@RequestMapping("insert.do")
+	@RequestMapping
 	public String insert(@ModelAttribute("BoardDto")BoardDto bdto) {
 		boardService.insert(bdto);
 		return "board/insert";

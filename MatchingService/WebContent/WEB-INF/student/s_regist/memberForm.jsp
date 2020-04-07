@@ -29,6 +29,7 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<script src="js/regist/registScript.js" ></script>
 <script>
 	function addTools() {
 		var tool = $("#s1_tag").val();
@@ -51,6 +52,7 @@
 		$("#s_tag").val(div.text());
 	}
 </script>
+	
 </head>
 <body id="page-top">
         <!-- Navigation-->
@@ -73,50 +75,49 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">Matching Teacher Student</h1>
+                        <h1 class="text-uppercase text-white font-weight-bold"></h1>
 	<form:form modelAttribute="memberInfo">
 
 		<p>
-			<form:label path="name">이름</form:label>
-			<form:input path="name" />
-			<form:errors path="name" />
+			<form:label class="text-white-75 font-weight-light mb-3" path="name" maxlength="10" >이름</form:label>
+			<form:input path="name" onkeydown="nameCheck()"/>
+			<form:errors path="name" class="text-white-75 font-weight-light mb-3" />
 		</p>
 		<p>
-			<form:label path="password">비밀번호</form:label>
+			<form:label class="text-white-75 font-weight-light mb-3" path="password" maxlength="20">비밀번호</form:label>
 			<form:password path="password" />
-			<form:errors path="password" />
+			<form:errors path="password" class="text-white-75 font-weight-light mb-3" />
 		</p>
 		<p>
-			<form:label path="reCheck">비밀번호 재확인</form:label>
+			<form:label class="text-white-75 font-weight-light mb-3" path="reCheck" maxlength="20">비밀번호 재확인</form:label>
 			<form:password path="reCheck" />
-			<form:errors path="reCheck" />
+			<form:errors path="reCheck" class="text-white-75 font-weight-light mb-3" />
 		</p>
 		<p>
-			<form:label path="s_email">이메일</form:label>
+			<form:label class="text-white-75 font-weight-light mb-3" path="s_email" maxlength="20">이메일</form:label>
 			<form:input path="s_email" />
-			<form:errors path="s_email" />
+			<form:errors path="s_email" class="text-white-75 font-weight-light mb-3" />
 		</p>
 
 		<p>
-			<form:label path="s_phone">전화번호</form:label>
-			<form:input path="s_phone" />
-			<form:errors path="s_phone" />
+			<form:label class="text-white-75 font-weight-light mb-3" path="s_phone" maxlength="20">전화번호</form:label>
+			<form:input path="s_phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" />
+			<form:errors path="s_phone" class="text-white-75 font-weight-light mb-3" />
 		</p>
 
 		<p>
-			<label for="s1_tag">관심 분야</label> <select id="s1_tag"
+			<label class="text-white-75 font-weight-light mb-5" for="s1_tag">관심 분야</label> <select id="s1_tag"
 				onchange="addTools()">
 				<option value="">---선택하세요---</option>
 				<option value="JAVA">JAVA</option>
 				<option value="C">C</option>
 				<option value="PYTHON">PYTHON</option>
 			</select>
-			<form:errors path="s_tag" />
+			<form:errors path="s_tag" class="text-white-75 font-weight-light mb-0 pb-0" />
+			<span id=divTools class="text-white-75 font-weight-light mt-0 pt-0"></span>
 		</p>
 		<form:hidden path="s_tag" />
-		<br>
-
-		<div id=divTools></div>
+		
 		<p>
 			<input type="submit" value="회원 등록">
 		</p>

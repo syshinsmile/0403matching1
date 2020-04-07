@@ -4008,6 +4008,7 @@ input[type=button].btn-block {
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
+ 
 }
 .navbar-nav .dropdown-menu {
   position: static;
@@ -10120,3 +10121,4 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
+#gugi{  font-family: 'Gugi', cursive; }

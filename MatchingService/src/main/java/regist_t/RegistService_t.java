@@ -15,29 +15,29 @@ public class RegistService_t
     private RegistDao_t dao;
     private List<String> e;
     
-    public void setDao(final RegistDao_t dao) {
+    public void setDao(RegistDao_t dao) {
         this.dao = dao;
     }
     
-    public int insert(final MemberInfo_t m) {
-        return this.dao.insert(m);
+    public int insert(MemberInfo_t m) {
+        return dao.insert(m);
     }
     
     public List<String> getEmail() {
-        return this.e = (List<String>)this.dao.getEmail();
+        return e = dao.getEmail();
     }
     
-    public Errors checkEmail(final Object target, final Errors errors) {
+    public Errors checkEmail(Object target, Errors errors) {
     	MemberInfo_t memberInfo = (MemberInfo_t)target;
-        this.e = this.getEmail();
-        final String t_email = memberInfo.getT_email();
+        e = getEmail();
+        String t_email = memberInfo.getT_email();
         if (t_email.equals("")) {
             errors.rejectValue("t_email", "required");
         }
         else {
             int x = 0;
-            for (int i = 0; i < this.e.size(); ++i) {
-                if (this.e.get(i).equals(t_email)) {
+            for (int i = 0; i < e.size(); ++i) {
+                if (e.get(i).equals(t_email)) {
                     x = 1;
                 }
             }
@@ -53,15 +53,14 @@ public class RegistService_t
     	String password=memberInfo.getPassword();
         String reCheck=memberInfo.getReCheck();
         
-        if(password.equals("")) {errors.rejectValue("password", "required"); }
-        else if(reCheck.equals("")) { 
+        if(password.equals("") || reCheck.equals("")) {
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "required"); 
         }
         else if(!reCheck.equals(password)) { 
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "reCheckErr"); 
-        }else if(errors.getErrorCount()>-1) {
+        }else if(errors.getErrorCount()>0) {
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "required"); 
         }

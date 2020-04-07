@@ -12,16 +12,16 @@ public class RegistService
     private RegistDao dao;
     private List<String> e;
     
-    public void setDao(final RegistDao dao) {
+    public void setDao(RegistDao dao) {
         this.dao = dao;
     }
     
-    public int insert(final MemberInfo m) {
-        return this.dao.insert(m);
+    public int insert(MemberInfo m) {
+        return dao.insert(m);
     }
     
     public List<String> getEmail() {
-        return this.e = (List<String>)this.dao.getEmail();
+        return e = dao.getEmail();
     }
     
     public Errors checkServ(Object target, Errors errors) {
@@ -34,8 +34,8 @@ public class RegistService
         }
         else {
             int x = 0;
-            for (int i = 0; i < this.e.size(); ++i) {
-                if (this.e.get(i).equals(s_email)) {
+            for (int i = 0; i < e.size(); ++i) {
+                if (e.get(i).equals(s_email)) {
                     x = 1;
                 }
             }
@@ -52,15 +52,14 @@ public class RegistService
     	String password=memberInfo.getPassword();
         String reCheck=memberInfo.getReCheck();
         
-        if(password.equals("")) {errors.rejectValue("password", "required"); }
-        else if(reCheck.equals("")) { 
+        if(password.equals("") || reCheck.equals("")) {
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "required"); 
         }
         else if(!reCheck.equals(password)) { 
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "reCheckErr"); 
-        }else if(errors.getErrorCount()>-1) {
+        }else if(errors.getErrorCount()>0) {
         	errors.rejectValue("password", "required"); 
         	errors.rejectValue("reCheck", "required"); 
         }

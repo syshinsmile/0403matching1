@@ -19,7 +19,7 @@ public class LoginService_t {
 	    public List<String> getEmail() { return lDao.getEmail(); }
 	    public String getPassword(String t_email) { return lDao.getPassword(t_email);}
 	    
-	    public Errors checkEmail(final Object target, final Errors errors) {
+	    public Errors checkEmail(Object target, Errors errors) {
 	    	
 	    	LoginCommand_t memberInfo= (LoginCommand_t)target;
 	        
@@ -32,8 +32,8 @@ public class LoginService_t {
 	        	if(password.equals("")) { errors.rejectValue("password", "required"); }
 	        }else { 
 	        	int x = 0;
-	            for (int i = 0; i < this.e.size(); ++i) {
-	                if (this.e.get(i).equals(t_email)) { 
+	            for (int i = 0; i < e.size(); ++i) {
+	                if (e.get(i).equals(t_email)) { 
 	                	x = 1; 
 				        String t_compare = getPassword(t_email);
 				        if(!password.equals(t_compare)) { errors.rejectValue("password", "notSame"); }

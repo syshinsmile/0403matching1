@@ -20,11 +20,11 @@ public class RegistMemberController_t
     private MemberInfoValidator_t vali;
     private String formViewName = "teacher/t_regist/memberForm_t";;
     
-    public void setServ(final RegistService_t serv) {
+    public void setServ(RegistService_t serv) {
         this.serv = serv;
     }
     
-    public void setVali(final MemberInfoValidator_t vali) {
+    public void setVali(MemberInfoValidator_t vali) {
         this.vali = vali;
     }
     
@@ -34,17 +34,17 @@ public class RegistMemberController_t
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String form(final Model model) {
+    public String form(Model model) {
         return formViewName;
     }
     
     @RequestMapping(method = RequestMethod.POST)
     public String submit(@ModelAttribute("memberInfo") MemberInfo_t memberInfo, BindingResult result, Model model) {
-        this.vali.validate(memberInfo, result);
+        vali.validate(memberInfo, result);
         if (result.hasErrors()) {
             return formViewName;
         }
-        this.serv.insert(memberInfo);
+        serv.insert(memberInfo);
         return "teacher/t_regist/success";
     }
 }

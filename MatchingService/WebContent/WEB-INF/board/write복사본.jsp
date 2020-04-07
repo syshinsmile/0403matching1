@@ -25,52 +25,31 @@
 <link href="css/styles.css" rel="stylesheet" />
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-//update함수 시작
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
 $(document).ready(function(){
-$("#btnUpdate").click(function(){
-	//버튼 형식을 id로 지정할 경우에는 값이 넘어가지 않는다. 밑에 변수 지정하는 것은 id로 지정했을때
-	//id는 jsp페이지 안에서 쓸 경우에만 붙이고 name은 값을 넘길때 사용하는 형식이다.
-	/* 	var title = $("#title").val();
-		var content = $("#content").val();
-		var writer = $("#writer").val(); */
+	$("#btnSave").click(function(){
+		var title=document.form1.title.value;
+		var content=document.form1.content.value;
+		var writer=document.form1.writer.value;
 		
-	var title=document.form1.title.value;
-	var content=document.form1.content.value;
-	var writer=document.form1.writer.value;
-
-	 if(title==""){
+		if(title==""){
 			alert("제목을 입력하세요");
 			document.form1.title.focus();
 			return;
-	}if(content==""){
+		}if(content==""){
 			alert("내용을 입력하세요");
 			document.form1.content.focus();
 			return;
-	}if(writer==""){
+		}if(writer==""){
 			alert("이름을 입력하세요");
 			document.form1.writer.focus();
 			return;
-	}
-	 	document.form1.action="update.do";
-	 	document.form1.submit();
+		}
+		//폼에 입력한 데이터를 서버로 전송한다
+		document.form1.submit(); 
+		});
 });
-}); 
-
-
-//delete.do 실행
-$(document).ready(function(){
-$("#btnDelete").click(function(){
-if(confirm("삭제하시겠습니까?")){
-document.form1.action="delete.do";
-document.form1.submit();
-}
-});
-});
-
-
 </script>
 </head>
 
@@ -94,51 +73,33 @@ document.form1.submit();
         </nav>
 
 
-<!-- header -->
+<%-- <%@ include file="" %> --%>
+
+<!-- Masthead-->
 <header class="masthead">
-<div class="row h-50 align-items-left justify-content-center text-center">
+<div class="container-md">
+<div class="jumbotron jumbotron-fluid">
+<div class="row h-50 align-items-center justify-content-center text-center">
+<div class="col-lg-10 align-self-end">
 
-<div style="width:300px; height:300px; position:absolute; left:40%; top:40%;  margin-left:-150px; margin-top:-150px;">
+<form name="form1" method="post" action="insert.do">
 
-<h1 class="text-white">게시글보기</h1>
-<form name="form1" method="post">
+<h2 >QnA작성하기</h2>
+<div>작성자이름 <input name="writer" placeholder="이름을 입력해주세요"> </div>
+<div>제목<input name="title" size="80" placeholder="제목을 입력해주세요"></div>
+<div>내용<textarea name="content" rows="4" cols="80" placeholder="내용을 입력해주세요"></textarea></div>
 
-<div> 
-<p class="text-white">조회수
-${BoardDto.viewcnt} </p>
-</div>
-
-<div>
-<p class="text-white">작성자이름
-<input name="writer" value= "${BoardDto.writer}">
-</p>
-</div>
-
-<div>
-<p class="text-white">제목</p>
-<input name="title" size="60" value="${BoardDto.title}">
-</div>
-
-<div><p class="text-white">내용</p>
-<textarea name="content" rows="4" cols="80">${BoardDto.content}
-</textarea>
-
-<br><br><br>
-<!-- 
-<div style="width:650px; text-align:center;"> -->
-<input type="hidden" name="code" value="${BoardDto.code}">
-<input type="button" id="btnUpdate"  class="btn btn-info" value="수정"/>
-<input type="button" id="btnDelete" class="btn btn-danger" value="삭제"/>
-<!-- </div> -->
-
-</div>
-<!-- <button type="submit" id="btnUpdate">수정완료</button> <button type="submit" id="btnDelete">삭제</button> -->
+<!-- <div style="width:650px; text-align:center;"> -->
+<button type="button" id="btnSave">확인</button>
+<button type="reset">처음부터 삭제하고 다시 쓰기</button><br><br><br>
 
 </form>
 </div>
 </div>
-</header>
+</div>
+</div>
 
+</header>
 
 
 
