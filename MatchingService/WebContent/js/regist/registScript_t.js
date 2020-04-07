@@ -36,7 +36,7 @@
         return true;
     }
     function eCheck(){
-    	var id=document.getElementById('s_email');
+    	var id=document.getElementById('t_email');
     	var v=id.value;
     	var l=id.value.length;
         if (l >19) {		
@@ -49,7 +49,7 @@
         return true;
     }
     function pCheck(){
-    	var id=document.getElementById('s_phone');
+    	var id=document.getElementById('t_phone');
     	var v=id.value;
     	var l=id.value.length;
         if (l >12) {		

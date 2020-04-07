@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean id="menuPreparer" class="spring.tiles.MenuPreparer" />
+	<!-- <bean id="menuPreparer" class="spring.tiles.MenuPreparer" /> -->
 
 	<!-- <bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

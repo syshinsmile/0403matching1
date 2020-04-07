@@ -85,23 +85,23 @@
 		</p>
 		<p>
 			<form:label class="text-white-75 font-weight-light mb-3" path="password" maxlength="20">비밀번호</form:label>
-			<form:password path="password" />
+			<form:password path="password" onkeydown="passwordCheck()" />
 			<form:errors path="password" class="text-white-75 font-weight-light mb-3" />
 		</p>
 		<p>
 			<form:label class="text-white-75 font-weight-light mb-3" path="reCheck" maxlength="20">비밀번호 재확인</form:label>
-			<form:password path="reCheck" />
+			<form:password path="reCheck" onkeydown="rePasswordCheck()" />
 			<form:errors path="reCheck" class="text-white-75 font-weight-light mb-3" />
 		</p>
 		<p>
 			<form:label class="text-white-75 font-weight-light mb-3" path="s_email" maxlength="20">이메일</form:label>
-			<form:input path="s_email" />
+			<form:input path="s_email" onkeydown="eCheck()" />
 			<form:errors path="s_email" class="text-white-75 font-weight-light mb-3" />
 		</p>
 
 		<p>
 			<form:label class="text-white-75 font-weight-light mb-3" path="s_phone" maxlength="20">전화번호</form:label>
-			<form:input path="s_phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" />
+			<form:input path="s_phone" onkeydown="pCheck()" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" />
 			<form:errors path="s_phone" class="text-white-75 font-weight-light mb-3" />
 		</p>
 

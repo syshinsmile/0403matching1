@@ -10,6 +10,7 @@
 <meta name="author" content="" />
 <title>MatchingService</title>
 
+
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"
 	crossorigin="anonymous"></script>
@@ -29,6 +30,7 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<script src="js/regist/registScript_t.js"></script>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -67,35 +69,35 @@
 					<form:form modelAttribute="memberInfo">
 						<p>
 							<label class="text-white-75 font-weight-light mb-3" for="name">이름</label>
-							<form:input path="name" />
+							<form:input path="name" onkeydown="nameCheck()" />
 							<form:errors path="name"
 								class="text-white-75 font-weight-light mb-3" />
 						</p>
 						<p>
 							<form:label class="text-white-75 font-weight-light mb-3"
 								path="password">비밀번호</form:label>
-							<form:password path="password" />
+							<form:password path="password" onkeydown="passwordCheck()" />
 							<form:errors path="password"
 								class="text-white-75 font-weight-light mb-3" />
 						</p>
 						<p>
 							<form:label class="text-white-75 font-weight-light mb-3"
 								path="reCheck">비밀번호 재확인</form:label>
-							<form:password path="reCheck" />
+							<form:password path="reCheck" onkeydown="rePasswordCheck()" />
 							<form:errors path="reCheck"
 								class="text-white-75 font-weight-light mb-3" />
 						</p>
 						<p>
 							<form:label class="text-white-75 font-weight-light mb-3"
 								path="t_email">이메일</form:label>
-							<input type="email" id="t_email" name="t_email" />
+							<input type="email" id="t_email" name="t_email" onkeydown="eCheck()" />
 							<form:errors path="t_email"
 								class="text-white-75 font-weight-light mb-3" />
 						</p>
 						<p>
 							<form:label class="text-white-75 font-weight-light mb-3"
 								path="t_phone">전화번호</form:label>
-							<input type=tel id="t_phone" name="t_phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
+							<input type=tel id="t_phone" name="t_phone" onkeydown="pCheck()" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
 							<form:errors path="t_phone"
 								class="text-white-75 font-weight-light mb-3" />
 						</p>
