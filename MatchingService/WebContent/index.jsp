@@ -52,6 +52,7 @@
 	
 	<a href="LoginStudent.do">학생 로그인</a><br>
 	<a href="LoginTeacher.do">선생님 로그인 </a><br><br>
+	<a href="upload.do">강좌 업로드</a><br>	
 	
 	
 	
