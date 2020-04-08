@@ -22,6 +22,8 @@ public class MemberInfoValidator implements Validator
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "s_phone", "required");
         
         errors = serv.checkServ(target, errors);
+        
+        
     }
     
     public boolean supports(Class<?> clazz) {

@@ -36,6 +36,7 @@
 		var div = $("#divTools");
 		var total;
 
+		div.html("");
 		var toolArr = div.html().split(" , ");
 		div.html("");
 		for (i = 0; i < toolArr.length; i++) {
@@ -48,6 +49,7 @@
 				div.append(toolArr[i] + " , ");
 			}
 		}
+
 		div.append(tool);
 		$("#s_tag").val(div.text());
 	}
@@ -76,7 +78,7 @@
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
                         <h1 class="text-uppercase text-white font-weight-bold"></h1>
-	<form:form modelAttribute="memberInfo">
+	<form:form modelAttribute="memberInfo" enctype="multipart/form-data">
 
 		<p>
 			<form:label class="text-white-75 font-weight-light mb-3" path="name" maxlength="10" >이름</form:label>
@@ -106,22 +108,29 @@
 		</p>
 
 		<p>
-			<label class="text-white-75 font-weight-light mb-5" for="s1_tag">관심 분야</label> <select id="s1_tag"
-				onchange="addTools()">
+			<label class="text-white-75 font-weight-light mb-3" for="s1_tag">관심 분야</label> 
+			<select id="s1_tag" onchange="addTools()">
 				<option value="">---선택하세요---</option>
 				<option value="JAVA">JAVA</option>
 				<option value="C">C</option>
 				<option value="PYTHON">PYTHON</option>
 			</select>
-			<form:errors path="s_tag" class="text-white-75 font-weight-light mb-0 pb-0" />
-			<span id=divTools class="text-white-75 font-weight-light mt-0 pt-0"></span>
+			<span id=divTools class="text-white-75 font-weight-light mt-0 pt-0 mb-0 pb-0"></span>
+			<form:hidden path="s_tag" />
 		</p>
-		<form:hidden path="s_tag" />
 		
+		<p>
+			<form:label class="text-white-75 font-weight-light mt-0 pt-0 mb-3" path="photo">
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+			본인 사진:</form:label>
+			<input type="file" class="text-white-75 font-weight-light mb-3" name="photo" id="photo"/><br>
+		</p>
 		<p>
 			<input type="submit" value="회원 등록">
 		</p>
 	</form:form>
+	
+	
  <hr class="divider my-4" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">

@@ -1,8 +1,11 @@
 package regist_t;
 
 import org.springframework.validation.Errors;
+import org.springframework.web.multipart.MultipartFile;
 
 import regist.MemberInfo;
+import regist.PhotoDto;
+import regist.ReportService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +18,25 @@ public class RegistService_t
     private RegistDao_t dao;
     private List<String> e;
     
+    @Autowired
+    private ReportService servR;
+	public void setServR(ReportService servR) {this.servR = servR;}
+    
     public void setDao(RegistDao_t dao) {
         this.dao = dao;
     }
     
+    
     public int insert(MemberInfo_t m) {
+    	MultipartFile photo=m.getPhoto();
+    	PhotoDto dto = servR.upload(photo);
+    	if(dto.getPhoto()!=null) {
+	    	dao.photoRegist(dto);
+	    	m.setStrphoto(dto.getPhoto());
+    	}
         return dao.insert(m);
     }
-    
+        
     public List<String> getEmail() {
         return e = dao.getEmail();
     }

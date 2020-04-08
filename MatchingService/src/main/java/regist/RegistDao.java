@@ -12,4 +12,9 @@ public class RegistDao extends SqlSessionDaoSupport
     public List<String> getEmail() {
         return getSqlSession().selectList("regist.s_email");
     }
+    
+    public int photoRegist(PhotoDto dto) {		  
+    	return getSqlSession().insert("regist.photoInsert",dto);
+    }
+    
 }

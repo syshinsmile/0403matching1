@@ -1,22 +1,33 @@
 package regist;
 
 import org.springframework.validation.Errors;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RegistService
-{
+public class RegistService{
     @Autowired
     private RegistDao dao;
     private List<String> e;
     
-    public void setDao(RegistDao dao) {
+    @Autowired
+    private ReportService servR;
+	public void setServR(ReportService servR) {this.servR = servR;}
+
+	public void setDao(RegistDao dao) {
         this.dao = dao;
     }
     
     public int insert(MemberInfo m) {
+    	MultipartFile photo=m.getPhoto();
+    	PhotoDto dto = servR.upload(photo);
+    	if(dto.getPhoto()!=null) {
+	    	dao.photoRegist(dto);
+	    	m.setStrphoto(dto.getPhoto());
+    	}
         return dao.insert(m);
     }
     
@@ -43,6 +54,7 @@ public class RegistService
                 errors.rejectValue("s_email", "notUnique");
             }
         }
+        
         checkPasswd(target, errors);
       
         return errors;
@@ -64,5 +76,4 @@ public class RegistService
         	errors.rejectValue("reCheck", "required"); 
         }
     }
-    
 }

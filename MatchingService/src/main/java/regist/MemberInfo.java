@@ -1,5 +1,7 @@
 package regist;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberInfo {
 	private String name;
 	private String password;
@@ -7,6 +9,8 @@ public class MemberInfo {
 	private String s_email;
 	private String s_phone;
 	private String s_tag;
+	private MultipartFile photo;
+	private String strphoto;
 
 	public String getName() {
 		return name;
@@ -43,6 +47,18 @@ public class MemberInfo {
 	}
 	public void setS_tag(String s_tag) {
 		this.s_tag = s_tag;
+	}
+	public MultipartFile getPhoto() {
+		return photo;
+	}
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
+	}
+	public String getStrphoto() {
+		return strphoto;
+	}
+	public void setStrphoto(String strphoto) {
+		this.strphoto = strphoto;
 	}
 	
 	

@@ -1,0 +1,17 @@
+이미 사용중인 경로
+
+로그인
+LoginStudent.do
+LoginTeacher.do
+
+회원가입
+RegistStudent.do
+RegistTeacher.do
+
+게시판
+BoardList.do
+write.do
+view.do
+update.do
+insert.do
+delete.do

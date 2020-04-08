@@ -66,7 +66,7 @@
 				class="row h-100 align-items-center justify-content-center text-center">
 				<div class="col-lg-10 align-self-end">
 					<h1 class="text-uppercase text-white font-weight-bold"></h1>
-					<form:form modelAttribute="memberInfo">
+					<form:form modelAttribute="memberInfo" enctype="multipart/form-data">
 						<p>
 							<label class="text-white-75 font-weight-light mb-3" for="name">이름</label>
 							<form:input path="name" onkeydown="nameCheck()" />
@@ -100,6 +100,12 @@
 							<input type=tel id="t_phone" name="t_phone" onkeydown="pCheck()" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
 							<form:errors path="t_phone"
 								class="text-white-75 font-weight-light mb-3" />
+						</p>
+						<p>
+							<form:label class="text-white-75 font-weight-light mt-0 pt-0 mb-3" path="photo">
+							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+							본인 사진:</form:label>
+							<input type="file" class="text-white-75 font-weight-light mb-3" name="photo" id="photo"/><br>
 						</p>
 						<p>
 							<input type="submit" value="회원 등록">
