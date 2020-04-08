@@ -1,22 +1,23 @@
 package spring.model;
 
-import java.sql.Timestamp;
+
+import java.util.Date;
 
 public class SubjectDto {
-	
+
 	private int subjectNum;
 	private String subjectName;
-	private String subjectImage;
-	private Timestamp startTime;
-	private Timestamp endTime;
+	private String startTime;
+	private String endTime;
 	private String content;
+	private String subjectImage;
 	private int cost;
 	private String subjecttag;
 	private String t_email;
 	private String s_email;
 	private int studentCount;
 	private int subjectScore;
-	
+
 	public int getSubjectNum() {
 		return subjectNum;
 	}
@@ -29,29 +30,18 @@ public class SubjectDto {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-	public String getSubjectImage() {
-		return subjectImage;
-	}
-	public void setSubjectImage(String subjectImage) {
-		this.subjectImage = subjectImage;
-	}
-	public Timestamp getStartTime() {
-		return startTime;
-	}
-	public void setStartTime(Timestamp startTime) {
-		this.startTime = startTime;
-	}
-	public Timestamp getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(Timestamp endTime) {
-		this.endTime = endTime;
-	}
+
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getSubjectImage() {
+		return subjectImage;
+	}
+	public void setSubjectImage(String subjectImage) {
+		this.subjectImage = subjectImage;
 	}
 	public int getCost() {
 		return cost;
@@ -89,4 +79,25 @@ public class SubjectDto {
 	public void setSubjectScore(int subjectScore) {
 		this.subjectScore = subjectScore;
 	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
 }

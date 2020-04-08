@@ -8,6 +8,21 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+	
+	<bean id="subjectDao" class="spring.service.SubjectDao">
+		<property name="sqlSessionFactory">
+			<ref bean="sqlSessionFactory"></ref>
+		</property>
+	</bean>
+	
+		<bean id="rankDao" class="spring.service.RankDao">
+		<property name="sqlSessionFactory">
+			<ref bean="sqlSessionFactory"></ref>
+		</property>
+	</bean>
+	
+
+
 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="50000000" />		
@@ -27,7 +42,7 @@
 	<!-- scan -->
 	<context:annotation-config />
 	<context:component-scan
-		base-package="spring.service,spring.controller,spring.model,spring.dao,regist,regist_t,login,login_t" />
+		base-package="spring.*,regist,regist_t,login,login_t" />
 
 	<!-- beanNameViewResolver -->
 	<bean
